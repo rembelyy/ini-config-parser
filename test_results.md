@@ -70,3 +70,5 @@ Var1:   value
 Port:   value2
 Token:  abc123
 
+## Result
+It's all fine in 0.0.1.
