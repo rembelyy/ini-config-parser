@@ -3,6 +3,8 @@
     - Support-Discord: rembelyy
     - Project-Github: https://github.com/rembelyy/ini-config-parser
     - License: https://github.com/rembelyy/ini-config-parser/blob/main/LICENSE
+    - Test results: https://github.com/rembelyy/ini-config-parser/blob/main/test_results.md
+    - Tests: Passed
 --]]
 
 local function parseIni(path)
@@ -40,3 +42,5 @@ end
 return {
     parse = parseIni
 }
+
+-- test: passed
