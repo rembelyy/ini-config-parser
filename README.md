@@ -1,56 +1,75 @@
 # ini-config-parser
-
-An INI Config Parser made with Lua.
+An INI config parser written in pure Lua.
 
 ---
 
 ## Features
 
-- Parses INI files into Lua tables
-- Supports sections and key-value pairs
-- Converts values to number or boolean if possible
-- Can serialize Lua tables back to INI format
-- Load from and save to files
+- Parses `.ini` files from disk
+- Supports section headers: `[section]`
+- Supports key-value pairs: `key = value`
+- Ignores empty lines and comments (`;` or `#`)
+- Quoted and unquoted values are handled
+- All keys and section names are converted to lowercase
+- Returns a structured Lua table
+- No external dependencies
+
+---
+
+## Example
+
+```ini
+[general]
+username = "rembelyy"
+active = true
+
+[paths]
+home = /home/user
+````
 
 ---
 
 ## Usage
 
 ```lua
-local ini = require("ini-config-parser")
+local ini = require("ini")
+local config = ini.parse("config.ini")
 
-local configStr = [[
-; Sample config
-[general]
-username = user123
-active = true
-score = 42
-
-[paths]
-home = /home/user
-]]
-
-local config = ini.parse(configStr)
-
-print(config.general.username)  -- Output: user123
-print(config.general.active)    -- Output: true
-print(config.general.score)     -- Output: 42
-
-config.general.score = 100
-
-local outStr = ini.stringify(config)
-print(outStr)
-````
+print(config.general.username)      --> rembelyy
+print(config.paths.home)            --> /home/user
+```
 
 ---
 
-## Installation
+## File
 
-Just copy the `ini.lua` file into your project and require it.
+File: `ini.lua`
+
+Exports:
+
+```lua
+{
+  parse = function(path) --> table or (nil, err)
+}
+```
+
+---
+
+## Tests
+
+* All tests passed
+* See: [test_results.md](https://github.com/rembelyy/ini-config-parser/blob/main/test_results.md)
+
+---
+
+## License
+
+Apache-2.0 License
+[View license](https://github.com/rembelyy/ini-config-parser/blob/main/LICENSE)
 
 ---
 
 ## Support
 
 Discord: rembelyy
-GitHub: [https://github.com/rembelyy/ini-config-parser](https://github.com/rembelyy/ini-config-parser) - [Pull Request](https://github.com/rembelyy/ini-config-parser/pulls)
+GitHub: [github.com/rembelyy/ini-config-parser](https://github.com/rembelyy/ini-config-parser)
