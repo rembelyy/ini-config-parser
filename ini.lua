@@ -2,6 +2,7 @@
     INI config parser.
     - Support-Discord: rembelyy
     - Project-Github: https://github.com/rembelyy/ini-config-parser
+    - License: https://github.com/rembelyy/ini-config-parser/blob/main/LICENSE
 --]]
 
 local function parseIni(path)
